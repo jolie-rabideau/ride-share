@@ -1,0 +1,1 @@
+INSERT INTO ride_share."Driver" (id, "userId", "licenseNumber", "licenseState") VALUES (1, 2, '1234567', 1);

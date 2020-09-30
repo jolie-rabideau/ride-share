@@ -1,0 +1,1 @@
+INSERT INTO ride_share."Passenger" ("passengerId", "rideId") VALUES (3, 3);

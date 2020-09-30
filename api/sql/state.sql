@@ -1,0 +1,1 @@
+INSERT INTO ride_share.state (abbreviation, name) VALUES (1, 'Indiana');

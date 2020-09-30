@@ -1,0 +1,1 @@
+INSERT INTO ride_share.vehicle (id, make, model, color, "vehicleTypeId", capacity, mpg, "licenseState", "licensePlate") VALUES (1, 'Subaru', 'Legacy', 'blue', 1, 5, 32, 1, '12345');

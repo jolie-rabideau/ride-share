@@ -1,0 +1,1 @@
+INSERT INTO ride_share.ride (id, date, "numberPassengers", time, distance, "fuelPrice", fee, charge, "vehicleId", "fromLocationId", "toLocationId") VALUES (3, '2020-09-30', 1, '05:00:00', 2, 2, 2, 2, 1, 1, 1);

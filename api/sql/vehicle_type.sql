@@ -1,0 +1,1 @@
+INSERT INTO ride_share."vehicle type" (id, type) VALUES (1, 'mid-size car');
