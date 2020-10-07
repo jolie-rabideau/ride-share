@@ -25,3 +25,8 @@ class Authorization extends Model {
 		}
 	}
 }
+
+Authorization.query() 
+	.select('vehicleId', 'driverId')
+	.then(authorizations => console.log(authorizations))
+	.catch(error => console.log(error.message));
