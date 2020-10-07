@@ -1,10 +1,10 @@
 const knex = require('knex')({
 	client: 'pg',
 	connection: {
-		host: 'faradat.cse.taylor.edy',
-		user: '',
-		password: '',
-		database: ''
+		host: 'faraday.cse.taylor.edu',
+		user: 'livia_rose',
+		password: 'fihekawu',
+		database: 'livia_rose'
 	}
 });
 const objection = require('objection');

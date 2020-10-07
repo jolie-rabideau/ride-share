@@ -11,14 +11,14 @@ class State extends Model {
 				modelClass: Driver, 
 				join: {
 					from: 'driver.licenseState',
-					to: 'state.abbreviation'
+					to: 'state.StateId'
 				}
 			}
 			vehicle: {
 				relation: Model.HasManyRelation,
 				modelClass: Vehicle, 
 				join: {
-					from: 'state.abbreviation',
+					from: 'state.stateId',
 					to: 'vehicle.licenseState'
 				}
 			}
@@ -26,7 +26,7 @@ class State extends Model {
 				relation: Model.HasManyRelation,
 				modelClass: Location, 
 				join: {
-					from: 'state.abbreviation',
+					from: 'state.stateId',
 					to: 'location.state'
 
 				}
@@ -34,4 +34,9 @@ class State extends Model {
 		}
 	}
 }
+
+State.query()
+	.select('stateId', 'name')
+	.then(states => console.log(states))
+	.catch(error => console.log(error.message));
 
