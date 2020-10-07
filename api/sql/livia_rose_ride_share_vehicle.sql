@@ -1,0 +1,4 @@
+INSERT INTO ride_share.vehicle (id, make, model, color, "vehicleTypeId", capacity, mpg, "licenseState", "licensePlate") VALUES (1, 'Subaru', 'Legacy', 'blue', 1, 5, 32, 1, '12345');
+INSERT INTO ride_share.vehicle (id, make, model, color, "vehicleTypeId", capacity, mpg, "licenseState", "licensePlate") VALUES (2, 'Subaru', 'Outback', 'red', 2, 7, 24, 8, '23456');
+INSERT INTO ride_share.vehicle (id, make, model, color, "vehicleTypeId", capacity, mpg, "licenseState", "licensePlate") VALUES (3, 'Honda', 'Pilot', 'green', 2, 5, 24, 1, '34567');
+INSERT INTO ride_share.vehicle (id, make, model, color, "vehicleTypeId", capacity, mpg, "licenseState", "licensePlate") VALUES (4, 'Toyota', 'Camry', 'black', 1, 5, 28, 10, '45678');

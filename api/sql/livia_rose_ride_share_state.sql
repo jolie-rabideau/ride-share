@@ -1,0 +1,15 @@
+INSERT INTO ride_share.state (abbreviation, name) VALUES (1, 'Indiana');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (2, 'California');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (3, 'South Dakota');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (4, 'North Dakota');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (5, 'Wisconsin');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (6, 'Alabama');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (7, 'Kansas');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (8, 'Arkansas');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (9, 'New Mexico');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (10, 'Florida');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (11, 'Virgina');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (12, 'Nevada');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (13, 'Utah');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (14, 'Idaho');
+INSERT INTO ride_share.state (abbreviation, name) VALUES (15, 'Montana');

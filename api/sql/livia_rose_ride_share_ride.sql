@@ -1,0 +1,3 @@
+INSERT INTO ride_share.ride (id, date, "numberPassengers", time, distance, "fuelPrice", fee, charge, "vehicleId", "fromLocationId", "toLocationId") VALUES (8, '2020-10-07', 1, '05:00:00', 3, 3, 3, 3, 2, 5, 1);
+INSERT INTO ride_share.ride (id, date, "numberPassengers", time, distance, "fuelPrice", fee, charge, "vehicleId", "fromLocationId", "toLocationId") VALUES (9, '2020-10-09', 1, '05:00:00', 3, 3, 3, 3, 3, 1, 5);
+INSERT INTO ride_share.ride (id, date, "numberPassengers", time, distance, "fuelPrice", fee, charge, "vehicleId", "fromLocationId", "toLocationId") VALUES (3, '2020-09-30', 2, '05:00:00', 2, 2, 2, 2, 1, 1, 1);

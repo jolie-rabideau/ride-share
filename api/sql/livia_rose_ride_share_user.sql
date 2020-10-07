@@ -1,0 +1,4 @@
+INSERT INTO ride_share."user" (id, "firstName", "lastName", email, password, phone, "isAdmin") VALUES (2, 'Livia ', 'Rose', 'livia_rose@taylor.edu', 'Password', 123, false);
+INSERT INTO ride_share."user" (id, "firstName", "lastName", email, password, phone, "isAdmin") VALUES (3, 'Jolie', 'Rabideau', 'jolie_rabideau@taylor.edu', 'Password', 111, false);
+INSERT INTO ride_share."user" (id, "firstName", "lastName", email, password, phone, "isAdmin") VALUES (5, 'Bob', 'Smith', 'bob_smith@taylor.edu', 'Password', 234, false);
+INSERT INTO ride_share."user" (id, "firstName", "lastName", email, password, phone, "isAdmin") VALUES (6, 'Alice', 'Smith', 'alice_smith@taylor.edu', 'Password', 456, false);
