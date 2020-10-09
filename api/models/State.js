@@ -5,8 +5,11 @@ class State extends Model {
 		return 'state';
 	}
 	static get relationMappings() {
+		const Driver = require('./Driver')
+		const Vehicle = require('./Vehicle')
+		const Location = require('./Location')
 		return {
-			driver: {
+			drivers: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Driver, 
 				join: {
@@ -14,7 +17,7 @@ class State extends Model {
 					to: 'state.StateId'
 				}
 			}
-			vehicle: {
+			vehicles: {
 				relation: Model.HasManyRelation,
 				modelClass: Vehicle, 
 				join: {
@@ -22,7 +25,7 @@ class State extends Model {
 					to: 'vehicle.licenseState'
 				}
 			}
-			location: {
+			locations: {
 				relation: Model.HasManyRelation,
 				modelClass: Location, 
 				join: {
@@ -31,12 +34,8 @@ class State extends Model {
 
 				}
 			}
-		}
+		};
 	}
 }
 
-State.query()
-	.select('stateId', 'name')
-	.then(states => console.log(states))
-	.catch(error => console.log(error.message));
-
+module.exports = State;

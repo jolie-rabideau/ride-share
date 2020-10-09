@@ -5,8 +5,10 @@ class Drivers extends Model {
 		return 'drivers';
 	}
 	static get relationMappings() {
+		const Driver = require('./Driver')
+		const Ride = require('./Ride')
 		return {
-			driver: {
+			drivers: {
 				relation: Model.HasManyRelation,
 				modelClass: Driver,
 				join: {
@@ -14,7 +16,7 @@ class Drivers extends Model {
 					to: 'drivers.driverId'
 				}
 			}
-			ride: {
+			rides: {
 				relation: Model.HasManyRelation,
 				modelClass: Ride,
 				join: { 
@@ -22,6 +24,8 @@ class Drivers extends Model {
 					to: 'drivers.rideId'
 				}
 			}
-		}	
+		};	
 	}
 }
+
+module.exports = Drivers;

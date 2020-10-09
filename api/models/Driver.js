@@ -5,8 +5,12 @@ class Driver extends Model {
 		return 'driver';
 	}
 	static get relationalMappings() {
+		const User = require('./User')
+		const Authorization = require('./Authorization')
+		const Drivers = require('./Drivers')
+		const State = require('./State')
 		return {
-			user: {
+			users: {
 				relation: Model.HasManyRelation, 
 				modelClass: User,
 				join: {
@@ -14,7 +18,7 @@ class Driver extends Model {
 					to: 'driver.userId'
 				}
 			}
-			authorization: {
+			authorizations: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Authorization,
 				join: {
@@ -22,7 +26,7 @@ class Driver extends Model {
 					to: 'driver.id'
 				}
 			}
-			Drivers: {
+			drivers: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Drivers,
 				join: {
@@ -30,7 +34,7 @@ class Driver extends Model {
 					to: 'driver.id'
 				}
 			}
-			State: {
+			states: {
 				relation: Model.HasManyRelation,
 				modelClass: State,
 				join: {
@@ -38,6 +42,8 @@ class Driver extends Model {
 					to: 'driver.licenseState'
 				}
 			}			
-		}	
+		};	
 	}
 }
+
+module.exports = Driver;

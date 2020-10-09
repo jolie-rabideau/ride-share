@@ -5,8 +5,12 @@ class Ride extends Model {
 		return 'ride';
 	}
 	static get relationMappings() {
+		const Passenger = require('./Passenger')
+		const Drivers = require('./Drivers')
+		const Vehicle = require('./Vehicle')
+		const Location = require('./Location')
 		return {
-			passenger: {
+			passengers: {
 				relation: Model.HasManyRelation,
 				modelClass: Passenger, 
 				join: {
@@ -22,7 +26,7 @@ class Ride extends Model {
 					to: 'drivers.rideId'
 				}
 			}
-			vehicle: {
+			vehicles: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Vehicle,
 				join: {
@@ -30,7 +34,7 @@ class Ride extends Model {
 					to: 'vehicle.id'
 				}
 			}
-			location: {
+			locations: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Location, 
 				join: {
@@ -42,6 +46,8 @@ class Ride extends Model {
 					to: 'location.id'
 				}
 			}
-		}	
+		};	
 	}
 }
+
+module.exports = Ride;

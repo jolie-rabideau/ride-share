@@ -5,8 +5,12 @@ class Vehicle extends Model {
 		return 'vehicle';
 	}
 	static get relationMappings() {
+		const Authorization = require('./Authorization')
+		const Ride = require('./Ride')
+		const Vehicle_Type = require('./Vehicle_Type')
+		const State = require('./State')
 		return {
-			authorization: {
+			authorizations: {
 				relation: Model.HasManyRelation,
 				modelClass: Authorization,
 				join: {
@@ -14,7 +18,7 @@ class Vehicle extends Model {
 					to: 'authorization.vehicleId'
 				}
 			}
-			ride: {
+			rides: {
 				relation: Model.HasManyRelation,
 				modelClass: Ride,
 				join: {
@@ -22,7 +26,7 @@ class Vehicle extends Model {
 					to: 'ride.vehicleId'
 				}
 			}
-			vehicle_type: {
+			vehicle_types: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Vehicle_Type,
 				join: {
@@ -30,7 +34,7 @@ class Vehicle extends Model {
 					to: 'vehicle_type.id'
 				}
 			}
-			state: {
+			states: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: State,
 				join: {
@@ -38,6 +42,8 @@ class Vehicle extends Model {
 					to: 'state.abbreviation'
 				}
 			}
-		}
+		};
 	}
 }
+
+module.exports = Vehicle;

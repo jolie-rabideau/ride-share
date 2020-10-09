@@ -5,8 +5,10 @@ class Location extends Model {
 		return 'location';
 	}
 	static get relationMappings() {
+		const Ride = require('./Ride')
+		const State = require('./State')
 		return {
-			ride: {
+			rides: {
 				relation: Model.HasManyRelation,
 				modelClass: Ride,
 				join: {
@@ -18,7 +20,7 @@ class Location extends Model {
 					to: 'ride.toLocationId'
 				}
 			}
-			state: {
+			states: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: State,
 				join: {
@@ -26,6 +28,8 @@ class Location extends Model {
 					to: 'state.abbreviation'
 				}
 			}
-		}
+		};
 	}
 }
+
+module.exports = Location;

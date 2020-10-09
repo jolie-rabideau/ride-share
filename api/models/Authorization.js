@@ -5,16 +5,18 @@ class Authorization extends Model {
 		return 'authorization';
 	}
 	static get relationMappings() {
+		const Driver = require('./Driver')
+		const Vehicle = require('./Vehicle')
 		return {
-			driver: {
+			drivers: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Driver,
 				join: {
 					from: 'authorization.driverId',
 					to: 'driver.id'
 				}
-			}
-			vehicle: {
+			},
+			vehicles: {
 				relation: Model.BelongsToOneRelation,
 				modelClass: Vehicle,
 				join: {
@@ -22,11 +24,8 @@ class Authorization extends Model {
 					to: 'vehicle.id'
 				}
 			}
-		}
+		};
 	}
 }
 
-Authorization.query() 
-	.select('vehicleId', 'driverId')
-	.then(authorizations => console.log(authorizations))
-	.catch(error => console.log(error.message));
+module.exports = Authorization;

@@ -5,8 +5,9 @@ class Vehicle_Type extends Model {
 		return 'vehicle_type';
 	}
 	static get relationMappings() {
+		const Vehicle = require('./Vehicle')
 		return {
-			vehicle: {
+			vehicles: {
 				relation: Model.HasManyRelation,
 				modelClass: Vehicle,
 				join: {
@@ -14,6 +15,8 @@ class Vehicle_Type extends Model {
 					to: 'vehicle.vehicleTypeId'
 				}
 			}
-		}
+		};
 	}
 }
+
+module.exports = Vehicle_Type;
