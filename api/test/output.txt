@@ -1,0 +1,1 @@
+select "id", "name" from "state" - relation "state" does not exist

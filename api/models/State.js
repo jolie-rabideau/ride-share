@@ -16,7 +16,7 @@ class State extends Model {
 					from: 'driver.licenseState',
 					to: 'state.StateId'
 				}
-			}
+			},
 			vehicles: {
 				relation: Model.HasManyRelation,
 				modelClass: Vehicle, 
@@ -24,7 +24,7 @@ class State extends Model {
 					from: 'state.stateId',
 					to: 'vehicle.licenseState'
 				}
-			}
+			},
 			locations: {
 				relation: Model.HasManyRelation,
 				modelClass: Location, 
