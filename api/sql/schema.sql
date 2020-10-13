@@ -1,136 +1,122 @@
-create table "user"
+CREATE TABLE "user"
 (
-    id          serial      not null
-        constraint user_pk
-            primary key,
-    "firstName" varchar(40) not null,
-    "lastName"  varchar(40) not null,
-    email       varchar(80) not null,
-    password    varchar(40) not null,
-    phone       integer     not null,
-    "isAdmin"   boolean     not null
+    id          serial      NOT NULL PRIMARY KEY,
+    "firstName" varchar(40) NOT NULL,
+    "lastName"  varchar(40) NOT NULL,
+    email       varchar(80) NOT NULL,
+    password    varchar(40) NOT NULL,
+    phone       integer     NOT NULL,
+    "isAdmin"   boolean     NOT NULL
 );
 
-create table "vehicle type"
+CREATE TABLE "vehicleType"
 (
-    id   serial      not null
-        constraint "vehicle type_pk"
-            primary key,
-    type varchar(80) not null
+    id   serial      NOT NULL PRIMARY KEY,
+    type varchar(80) NOT NULL
 );
 
-create table state
+CREATE TABLE state
 (
-    abbreviation serial      not null
-        constraint "vehicle type _pk"
-            primary key,
-    name         varchar(40) not null
+    abbreviation char(2)     NOT NULL PRIMARY KEY,
+    name         varchar(40) NOT NULL
 );
 
-create table "Driver"
+CREATE TABLE "driver"
 (
-    id              serial      not null
-        constraint driver_pk
-            primary key,
-    "userId"        integer     not null
-        constraint driver_user_id_fk
-            references "user",
-    "licenseNumber" varchar(40) not null,
-    "licenseState"  integer     not null
-        constraint driver_state_abbreviation_fk
-            references state
+    id              serial      NOT NULL PRIMARY KEY,
+    "userId"        integer     NOT NULL
+        CONSTRAINT driver_user_id_fk
+            REFERENCES "user",
+    "licenseNumber" varchar(40) NOT NULL,
+    "licenseState"  char(2)     NOT NULL
+        CONSTRAINT driver_state_abbreviation_fk
+            REFERENCES state
 );
 
-create table vehicle
+CREATE TABLE vehicle
 (
-    id              serial           not null
-        constraint vehicle_pk
-            primary key,
-    make            varchar(40)      not null,
-    model           varchar(40)      not null,
-    color           varchar(40)      not null,
-    "vehicleTypeId" integer          not null
-        constraint "vehicle_vehicle type_id_fk"
-            references "vehicle type",
-    capacity        integer          not null,
-    mpg             double precision not null,
-    "licenseState"  integer          not null
-        constraint vehicle_state_abbreviation_fk
-            references state,
-    "licensePlate"  varchar(40)      not null
+    id              serial           NOT NULL PRIMARY KEY,
+    make            varchar(40)      NOT NULL,
+    model           varchar(40)      NOT NULL,
+    color           varchar(40)      NOT NULL,
+    "vehicleTypeId" integer          NOT NULL
+        CONSTRAINT "vehicle_vehicleType_id_fk"
+            REFERENCES "vehicleType",
+    capacity        integer          NOT NULL,
+    mpg             double precision NOT NULL,
+    "licenseState"  char(2)          NOT NULL
+        CONSTRAINT vehicle_state_abbreviation_fk
+            REFERENCES state,
+    "licensePlate"  varchar(40)      NOT NULL
 );
 
-create table "authorization"
+CREATE TABLE "authorization"
 (
-    "driverId"  integer not null
-        constraint authorization_driver_id_fk
-            references "Driver",
-    "vehicleId" integer not null
-        constraint authorization_vehicle_id_fk
-            references vehicle,
-    constraint authorization_pk
-        primary key ("vehicleId", "driverId")
+    "driverId"  integer NOT NULL
+        CONSTRAINT authorization_driver_id_fk
+            REFERENCES "driver",
+    "vehicleId" integer NOT NULL
+        CONSTRAINT authorization_vehicle_id_fk
+            REFERENCES vehicle,
+    CONSTRAINT authorization_pk
+        PRIMARY KEY ("vehicleId", "driverId")
 );
 
-create table location
+CREATE TABLE location
 (
-    id        serial      not null
-        constraint location_pk
-            primary key
-        constraint location_state_abbreviation_fk
-            references state,
-    name      varchar(40) not null,
-    address   varchar(80) not null,
-    city      varchar(40) not null,
-    state     varchar(40) not null,
-    "zipCode" varchar(40) not null
+    id        serial      NOT NULL
+        CONSTRAINT location_pk
+            PRIMARY KEY,
+    name      varchar(40) NOT NULL,
+    address   varchar(80) NOT NULL,
+    city      varchar(40) NOT NULL,
+    state     char(2) NOT NULL
+        CONSTRAINT location_state_abbreviation_fk
+            REFERENCES state,
+    "zipCode" varchar(40) NOT NULL
 );
 
-create table ride
+CREATE TABLE ride
 (
-    id                 serial           not null
-        constraint ride_pk
-            primary key,
-    date               date             not null,
-    "numberPassengers" integer          not null,
-    time               time             not null,
-    distance           double precision not null,
-    "fuelPrice"        double precision not null,
-    fee                double precision not null,
-    charge             double precision not null,
-    "vehicleId"        integer          not null
-        constraint ride_vehicle_id_fk
-            references vehicle,
-    "fromLocationId"   integer          not null
-        constraint ride_location_id_fk
-            references location,
-    "toLocationId"     integer          not null
-        constraint ride_location_id_fk_2
-            references location
+    id                 serial           NOT NULL PRIMARY KEY,
+    date               date             NOT NULL,
+    "numberPassengers" integer          NOT NULL,
+    time               time             NOT NULL,
+    distance           double precision NOT NULL,
+    "fuelPrice"        double precision NOT NULL,
+    fee                double precision NOT NULL,
+    charge             double precision NOT NULL,
+    "vehicleId"        integer          NOT NULL
+        CONSTRAINT ride_vehicle_id_fk
+            REFERENCES vehicle,
+    "fromLocationId"   integer          NOT NULL
+        CONSTRAINT ride_location_id_fk
+            REFERENCES location,
+    "toLocationId"     integer          NOT NULL
+        CONSTRAINT ride_location_id_fk_2
+            REFERENCES location
 );
 
-create table "Passenger"
+CREATE TABLE "passenger"
 (
-    "passengerId" integer not null
-        constraint passenger_user_id_fk
-            references "user",
-    "rideId"      integer not null
-        constraint passenger_ride_id_fk
-            references ride,
-    constraint passenger_pk
-        primary key ("passengerId", "rideId")
+    "passengerId" integer NOT NULL
+        CONSTRAINT passenger_user_id_fk
+            REFERENCES "user",
+    "rideId"      integer NOT NULL
+        CONSTRAINT passenger_ride_id_fk
+            REFERENCES ride,
+    CONSTRAINT passenger_pk
+        PRIMARY KEY ("passengerId", "rideId")
 );
 
-create table "Drivers"
+CREATE TABLE "drivers"
 (
-    "driverId" integer not null
-        constraint drivers_driver_id_fk
-            references "Driver",
-    "rideId"   integer not null
-        constraint drivers_ride_id_fk
-            references ride,
-    constraint drivers_pk
-        primary key ("driverId", "rideId")
+    "driverId" integer NOT NULL
+        CONSTRAINT drivers_driver_id_fk
+            REFERENCES "driver",
+    "rideId"   integer NOT NULL
+        CONSTRAINT drivers_ride_id_fk
+            REFERENCES ride,
+    CONSTRAINT drivers_pk
+        PRIMARY KEY ("driverId", "rideId")
 );
-
-

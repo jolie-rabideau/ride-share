@@ -1,1 +1,15 @@
-INSERT INTO ride_share.state (abbreviation, name) VALUES (1, 'Indiana');
+INSERT INTO state (abbreviation, name) VALUES ('IN', 'Indiana');
+INSERT INTO state (abbreviation, name) VALUES ('CA', 'California');
+INSERT INTO state (abbreviation, name) VALUES ('SD', 'South Dakota');
+INSERT INTO state (abbreviation, name) VALUES ('ND', 'North Dakota');
+INSERT INTO state (abbreviation, name) VALUES ('WI', 'Wisconsin');
+INSERT INTO state (abbreviation, name) VALUES ('AL', 'Alabama');
+INSERT INTO state (abbreviation, name) VALUES ('KS', 'Kansas');
+INSERT INTO state (abbreviation, name) VALUES ('AR', 'Arkansas');
+INSERT INTO state (abbreviation, name) VALUES ('NM', 'New Mexico');
+INSERT INTO state (abbreviation, name) VALUES ('FL', 'Florida');
+INSERT INTO state (abbreviation, name) VALUES ('VI', 'Virgina');
+INSERT INTO state (abbreviation, name) VALUES ('NV', 'Nevada');
+INSERT INTO state (abbreviation, name) VALUES ('UT', 'Utah');
+INSERT INTO state (abbreviation, name) VALUES ('ID', 'Idaho');
+INSERT INTO state (abbreviation, name) VALUES ('MT', 'Montana');
