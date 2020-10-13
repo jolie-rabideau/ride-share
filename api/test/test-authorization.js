@@ -1,5 +1,11 @@
-const Authorization = require('../models/Authorization')
+const Authorization = require("../models/Authorization.js")
 
-const auth = await Authorization.query().withGrapheFetched('');
+async function testAuthorization() {
+    await Authorization.query()
+	.select()
+	.then((authorizations) => console.log(authorizations))
+	.catch((error) => console.log(error.message));
+    State.knex().destroy();
+}
 
-console.log(auth[0].''[0].name);
+testAuthorization();

@@ -5,7 +5,7 @@ const knex = require("knex")({
     user: "livia_rose",
     password: "fihekawu",
     database: "livia_rose",
-  },
+  }
 });
 
 const objection = require("objection");

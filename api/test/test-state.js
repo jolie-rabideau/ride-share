@@ -1,4 +1,4 @@
-const State = require("../models/State");
+const State = require("../models/State.js");
 
 async function testState() {
   await State.query()
